@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.gallery,
+.footer,
+.intro {
+    position: relative;
+    z-index: 1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #111;
+    color: #eee;
+    line-height: 1.6;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #0a0a0a;
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    border-top: 1px solid #222;
+}
+
+body.light-mode .footer {
+    background-color: #f2f2f2;
+    color: #555;
+    border-top: 1px solid #ccc;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 1rem;
+}
+
+.intro {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #333;
+}
+
+.intro h1 {
+    font-size: 3rem;
+    color: #f9d342;
+    margin-bottom: 0.5rem;
+}
+
+.intro p {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #ccc;
+}
+
+.quote-banner {
+    grid-column: 1 / -1;
+    background-color: #1c1c1c;
+    color: #f9d342;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    border: 1px solid #333;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.art-piece {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.art-piece:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 223, 100, 0.3);
+}
+
+.art-piece img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.caption {
+    padding: 1.2rem;
+    background-color: #222;
+    border-top: 4px solid #f9d342;
+}
+
+.caption h2 {
+    margin: 0 0 0.5rem;
+    color: #f9d342;
+    font-size: 1.3rem;
+}
+
+.caption p {
+    font-style: italic;
+    color: #ddd;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.caption p:hover {
+    color: #fff;
+}
+
+.carta-final {
+    max-width: 800px;
+    margin: 5rem auto 3rem;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    border-left: 6px solid #f9d342;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 223, 100, 0.1);
+    text-align: center;
+    font-style: italic;
+    color: #ddd;
+    line-height: 1.8;
+}
+
+.carta-final h2 {
+    color: #f9d342;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.carta-final .assinatura {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: #bbb;
+    font-style: normal;
+}
+
+.timeline {
+    grid-column: 1 / -1;
+    padding: 3rem 1rem;
+    background-color: #1a1a1a;
+    margin-top: 4rem;
+    border-top: 1px solid #333;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.timeline h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: #f9d342;
+    margin-bottom: 2rem;
+}
+
+.timeline-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 1rem 1rem 1rem;
+    justify-content: flex-start;
+    scroll-padding-left: 2rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 100%;
+}
+
+.timeline-container::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-container::before,
+.timeline-container::after {
+    content: '';
+    flex: 0 0 1rem;
+}
+
+.timeline-container .timeline-item:first-child {
+    margin-left: 1rem;
+}
+
+.timeline-item {
+    flex: 0 0 auto;
+    width: 200px;
+    background-color: #222;
+    border-radius: 12px;
+    text-align: center;
+    padding: 1rem;
+    scroll-snap-align: center;
+    box-shadow: 0 0 10px rgba(249, 211, 66, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: scale(1.03);
+}
+
+.timeline-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-item p {
+    color: #ddd;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.custom-footer {
+    background-color: #faf3e0;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e0d6c9;
+}
+
+.footer-logo {
+    height: 50px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.85;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .gallery {
+        padding: 2rem 0.5rem;
+        gap: 1rem;
+    }
+
+    .caption {
+        padding: 1rem;
+    }
+
+    .caption h2 {
+        font-size: 1.1rem;
+    }
+
+    .caption p {
+        font-size: 0.9rem;
+    }
+
+    .timeline {
+        padding: 2rem 0.5rem;
+    }
+
+    .timeline h2 {
+        font-size: 1.5rem;
+    }
+
+    .timeline-container {
+        padding: 0 0.5rem 1rem 0.5rem;
+        gap: 1rem;
+        scroll-padding-left: 1rem;
+        min-width: 100%;
+    }
+
+    .timeline-container .timeline-item:first-child {
+        margin-left: 1rem;
+    }
+
+    .timeline-item {
+        width: 160px;
+        padding: 0.8rem;
+    }
+
+    .timeline-item p {
+        font-size: 0.85rem;
+    }
+
+    .carta-final {
+        margin: 3rem auto;
+        padding: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .carta-final h2 {
+        font-size: 1.5rem;
+    }
+
+    .custom-footer {
+        padding: 1.2rem 0.5rem;
+    }
+}
